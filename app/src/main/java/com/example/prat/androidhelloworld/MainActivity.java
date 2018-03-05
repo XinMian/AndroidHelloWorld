@@ -11,18 +11,27 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    TextView tvHello;
+    EditText etUsername;
+    EditText etPassword;
+    Button btSubmit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final TextView tvHello = (TextView) findViewById(R.id.TVHello);
+        initInstances();
+    }
+
+    private void initInstances() {
+        tvHello = (TextView) findViewById(R.id.TVHello);
         tvHello.setText("Login");
 
-        final EditText etUsername = findViewById(R.id.EtUsername);
-        final EditText etPassword = findViewById(R.id.EtPassword);
+        etUsername = findViewById(R.id.EtUsername);
+        etPassword = findViewById(R.id.EtPassword);
         etPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -36,13 +45,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button btSubmit = findViewById(R.id.BtSubmit);
-        btSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tvHello.setText(etUsername.getText() + " " + etPassword.getText());
-            }
-        });
+        btSubmit = findViewById(R.id.BtSubmit);
+        btSubmit.setOnClickListener(this);
+    }
 
+    @Override
+    public void onClick(View v) {
+        if(v == btSubmit)
+            tvHello.setText(etUsername.getText() + " " + etPassword.getText());
     }
 }
