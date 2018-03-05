@@ -18,6 +18,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText etPassword;
     Button btSubmit;
 
+    EditText etInput1;
+    EditText etInput2;
+    TextView tvResult;
+    Button btnCalculate;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,11 +52,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btSubmit = findViewById(R.id.BtSubmit);
         btSubmit.setOnClickListener(this);
+
+        //Start Here
+        etInput1 = findViewById(R.id.Etinput1);
+        etInput2 = findViewById(R.id.Etinput2);
+        tvResult = findViewById(R.id.TvResult);
+        btnCalculate = findViewById(R.id.BtnCalculate);
+
+        btnCalculate.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         if(v == btSubmit)
             tvHello.setText(etUsername.getText() + " " + etPassword.getText());
+        else if(v == btnCalculate)
+        {
+            int input1 =  Integer.parseInt(etInput1.getText().toString());
+            int input2 =  Integer.parseInt(etInput2.getText().toString());
+            int result = input1 + input2;
+
+            tvResult.setText("= " + result);
+        }
+
     }
 }
