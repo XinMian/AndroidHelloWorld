@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">AndroidHelloWorld</string>
-    <string name="calculate">Calculate</string>
+    <string name="calculate">คำนวณ</string>
 </resources>
