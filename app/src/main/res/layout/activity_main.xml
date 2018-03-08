@@ -86,8 +86,9 @@
                     android:text="= 0" />
             </LinearLayout>
 
-            <Button
+            <com.github.rubensousa.raiflatbutton.RaiflatButton
                 android:id="@+id/BtnCalculate"
+                style="@style/Base.Widget.AppCompat.Button.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/calculate" />
@@ -141,6 +142,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:progress="33" />
+            <include layout="@layout/sample_bar" />
+
+            <com.example.prat.androidhelloworld.CustomViewGroup
+                android:id="@+id/viewGroup1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <com.example.prat.androidhelloworld.CustomViewGroup
+                android:id="@+id/viewGroup2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.example.prat.androidhelloworld.CustomView
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                app:isBlue="true"/>
+
 
             <View
                 android:layout_width="match_parent"

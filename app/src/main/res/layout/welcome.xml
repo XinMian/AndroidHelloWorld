@@ -78,8 +78,7 @@
                 android:background="#333333"
                 android:padding="1dp"
                 android:text="Skip"
-                android:textColor="#FFFFFF"
-                android:textSize="13.5dp"
+                style="@style/TextViewStyle.Green"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/btnGetStart"/>
             <TextView
@@ -89,10 +88,9 @@
                 android:gravity="center_horizontal"
                 android:paddingBottom="4dp"
                 android:text="By continuing, you accept the Term of Use and Privacy Policy"
-                android:textColor="#FFFFFF"
-                android:textSize="13.5dp"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@id/btnSkip"/>
+                android:layout_below="@id/btnSkip"
+                style="@style/TextViewStyle" />
         </RelativeLayout>
 
     </LinearLayout>

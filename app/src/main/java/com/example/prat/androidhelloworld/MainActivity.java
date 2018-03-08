@@ -11,6 +11,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RadioButton radioDivide;
     RadioGroup radioGroupCalculateMode;
 
+    CustomViewGroup vg1;
+    CustomViewGroup vg2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +59,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initInstances() {
-        tvHello = (TextView) findViewById(R.id.TVHello);
+        vg1 = (CustomViewGroup) findViewById(R.id.viewGroup1);
+        vg2 = (CustomViewGroup) findViewById(R.id.viewGroup2);
+        vg1.setBtnText("Hello");
+        vg2.setBtnText("World");
+
+
+                tvHello = (TextView) findViewById(R.id.TVHello);
         tvHello.setText("Login");
 
         etUsername = findViewById(R.id.EtUsername);
