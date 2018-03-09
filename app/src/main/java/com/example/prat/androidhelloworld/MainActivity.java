@@ -1,5 +1,6 @@
 package com.example.prat.androidhelloworld;
 
+import android.content.Intent;
 import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int width = size.x;
         int height = size.y;
 
-        Toast.makeText(MainActivity.this, "Width = "+width+", Height = "+height, Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.this, "Width = " + width + ", Height = " + height, Toast.LENGTH_LONG).show();
     }
 
     private void initInstances() {
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         vg2.setBtnText("World");
 
 
-                tvHello = (TextView) findViewById(R.id.TVHello);
+        tvHello = (TextView) findViewById(R.id.TVHello);
         tvHello.setText("Login");
 
         etUsername = findViewById(R.id.EtUsername);
@@ -145,6 +146,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             tvResult.setText("= " + result);
             Log.d("Calculation", "Result = " + result);
             Toast.makeText(MainActivity.this, "Result = " + result, Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            intent.putExtra("result", result);
+            startActivity(intent);
         }
 
     }
@@ -157,8 +162,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.action_settings)
-        {
+        if (item.getItemId() == R.id.action_settings) {
             Toast.makeText(MainActivity.this, "Setting", Toast.LENGTH_SHORT).show();
             return true;
         }
