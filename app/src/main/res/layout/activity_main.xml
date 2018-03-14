@@ -83,7 +83,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="= 0" />
+                    android:text="= 0"
+                    android:freezesText="true"/>
             </LinearLayout>
 
             <com.github.rubensousa.raiflatbutton.RaiflatButton
@@ -94,6 +95,7 @@
                 android:text="@string/calculate" />
 
             <CheckBox
+                android:id="@+id/checkboxAgree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
@@ -154,6 +156,7 @@
                 android:layout_height="wrap_content"/>
 
             <com.example.prat.androidhelloworld.CustomView
+                android:id="@+id/customeView1"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 app:isBlue="true"/>

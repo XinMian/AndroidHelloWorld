@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
@@ -139,5 +140,22 @@ public class CustomView extends View {
                 return true;
         }
         return super.onTouchEvent(event);
+    }
+
+    @Nullable
+    @Override
+    protected Parcelable onSaveInstanceState() {
+        Parcelable superState = super.onSaveInstanceState();
+        CustomerViewSavedState savedState = new CustomerViewSavedState(superState);
+        savedState.setBlue(isBlue);
+
+        return  savedState;
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Parcelable state) {
+        CustomerViewSavedState savedState = (CustomerViewSavedState) state;
+        super.onRestoreInstanceState(savedState.getSuperState());
+        isBlue = savedState.isBlue();
     }
 }
