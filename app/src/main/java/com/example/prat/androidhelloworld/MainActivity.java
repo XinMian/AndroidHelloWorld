@@ -1,6 +1,7 @@
 package com.example.prat.androidhelloworld;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Point;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
@@ -46,6 +47,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(getResources().getBoolean(R.bool.portrait_only))
+        {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
+
+
         setContentView(R.layout.activity_main);
 
         initInstances();
@@ -150,9 +157,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
             intent.putExtra("result", result);
-            startActivity(intent);
+
+            startActivityForResult(intent, 12345);
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         }
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 12345)
+        {
+            if(resultCode == RESULT_OK)
+            {
+                String text = data.getStringExtra("Text");
+                Toast.makeText(MainActivity.this, text, Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     @Override
